@@ -19,3 +19,6 @@ build/
 
 # Binary directory
 bin/
+
+# CMakeFiles directory
+CMakeFiles/

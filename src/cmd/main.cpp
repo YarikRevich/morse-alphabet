@@ -1,4 +1,4 @@
-#include "systemc"
+#include "systemc.h"
 
 #include "../internal/core/executor/executor.hpp"
 #include "../internal/core/pipeline/pipeline.hpp"
@@ -35,7 +35,7 @@ using namespace sc_core;
 // };
 
 int sc_main(int, char*[]) {
-  Executor executor("executor");
+  //Executor executor("executor");
 
   sc_start(8, SC_SEC); // run simulation for 8 seconds
 
