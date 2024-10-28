@@ -1,4 +1,4 @@
-#include "systemc.h"
+#include "systemc"
 
 #include "../internal/core/executor/executor.hpp"
 #include "../internal/core/pipeline/pipeline.hpp"
