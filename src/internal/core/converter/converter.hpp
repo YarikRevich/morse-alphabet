@@ -2,13 +2,18 @@
 
 #include "systemc"
 
-#include "immutable/map.h"
+#include <map>
+#include <mutex>
+
+#include "../../tools/morse/morse.hpp"
 
 /**
  * Represents 
  */
 class Converter {
 public:
-
-private:
+    /**
+     * Performs data initialization.
+     */
+    Converter();
 };

@@ -10,8 +10,7 @@ message("Make build output path is /bin")
 
 # Describes all available state properties.
 add_compile_definitions(AWAIT_INPUT_STATE=0)
-add_compile_definitions(START_INPUT_STATE=1)
-add_compile_definitions(END_INPUT_STATE=2)
+add_compile_definitions(RECORD_INPUT_STATE=1)
 add_compile_definitions(CONVERT_INPUT_STATE=3)
 
 file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
@@ -22,7 +21,7 @@ link_directories(
     "lib/"
 )
 
-file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
+file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
 
 add_executable(
     ma

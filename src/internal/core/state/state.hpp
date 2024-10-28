@@ -19,5 +19,5 @@ private:
     /**
      * Represents current state value.
      */
-    int current;
+    int current = AWAIT_INPUT_STATE;
 };

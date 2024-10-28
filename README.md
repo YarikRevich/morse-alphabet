@@ -5,10 +5,11 @@
 
 ## General Information
 
-An application for embedded devices, which acts as ascii-to-morse-alphabet converter.
+A design of application for embedded devices, which acts as ASCII-to-morse-alphabet converter.
 
 ![](./docs/high-level-design.png)
 
+![](./docs/finite-state-machine-design.png)
 
 ## Setup
 
