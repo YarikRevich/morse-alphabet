@@ -8,6 +8,12 @@ set(CMAKE_CXX_FLAGS "-std=c++17 -D_XOPEN_SOURCE_EXTENDED")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 message("Make build output path is /bin")
 
+# Describes all available state properties.
+add_compile_definitions(AWAIT_INPUT_STATE=0)
+add_compile_definitions(START_INPUT_STATE=1)
+add_compile_definitions(END_INPUT_STATE=2)
+add_compile_definitions(CONVERT_INPUT_STATE=3)
+
 file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
 
 include_directories(${INCLUDE_FILES})

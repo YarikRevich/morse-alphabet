@@ -1,0 +1,14 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: "Build"
+      run: |
+        sudo make build

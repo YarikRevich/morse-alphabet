@@ -1,23 +1,42 @@
-// Learn with Examples, 2020, MIT license
-#include "systemc" // include the systemC header file
-using namespace sc_core; // use namespace
+#include "systemc"
 
-void hello1() { // a normal c++ function
-  std::cout << "Hello world using approach 1" << std::endl;
-}
+#include "../internal/core/pipeline/pipeline.hpp"
 
-struct HelloWorld : sc_module { // define a systemC module
-  SC_CTOR(HelloWorld) {// constructor function, to be explained later
-    SC_METHOD(hello2); // register a member function to the kernel
+using namespace sc_core;
+
+SC_MODULE(EVENT) {
+  // Pipeline pipeline;
+
+  sc_event e; // declare an event
+  SC_CTOR(EVENT) {
+    // pipeline.get_data();
+
+    SC_THREAD(trigger); //register a trigger process
+    SC_THREAD(catcher); // register a catcher process
   }
-  void hello2(void) { // a function for systemC simulation kernel, void inside () can be omitted
-    std::cout << "Hello world using approach 2" << std::endl;
+
+  void trigger() {
+    while (true) { // infinite loop
+      e.notify(1, SC_SEC); // trigger after 1 second
+      if (sc_time_stamp() == sc_time(4, SC_SEC)) {
+        e.cancel(); // cancel the event triggered at time = 4 s
+      }
+      wait(2, SC_SEC); // wait for 2 seconds before triggering again
+    }
+  }
+
+  void catcher() {
+    while (true) { // loop forever
+      wait(e); // wait for event
+      std::cout << "Event cateched at " << sc_time_stamp() << std::endl; // print to console
+    }
   }
 };
 
-int sc_main(int, char*[]) { // entry point
-  hello1(); // approach #1: manually invoke a normal function
-  HelloWorld helloworld("helloworld"); // approach #2, instantiate a systemC module
-  sc_start(); // let systemC simulation kernel to invoke helloworld.hello2();
+int sc_main(int, char*[]) {
+  EVENT event("event"); // define object
+
+  sc_start(8, SC_SEC); // run simulation for 8 seconds
+
   return 0;
 }
