@@ -1,7 +1,0 @@
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/ma.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/edit_cache.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/rebuild_cache.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/list_install_components.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/install.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/install/local.dir
-/Volumes/Files/c/morse-alphabet/build/CMakeFiles/install/strip.dir

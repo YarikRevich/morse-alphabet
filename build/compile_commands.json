@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Volumes/Files/c/morse-alphabet/build",
-  "command": "/usr/bin/clang++  -I/Volumes/Files/c/morse-alphabet/include/systemc -std=c++17 -D_XOPEN_SOURCE_EXTENDED -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/ma.dir/src/cmd/main.cpp.o -c /Volumes/Files/c/morse-alphabet/src/cmd/main.cpp",
-  "file": "/Volumes/Files/c/morse-alphabet/src/cmd/main.cpp",
-  "output": "CMakeFiles/ma.dir/src/cmd/main.cpp.o"
-}
-]
