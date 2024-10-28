@@ -1,11 +1,11 @@
 # morse-alphabet
 
-[![Build](https://github.com/YarikRevich/RepoAchiever/actions/workflows/build.yml/badge.svg)](https://github.com/YarikRevich/RepoAchiever/actions/workflows/build.yml)
+[![Build](https://github.com/YarikRevich/morse-alphabet/actions/workflows/build.yml/badge.svg)](https://github.com/YarikRevich/morse-alphabet/actions/workflows/build.yml)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
 ## General Information
 
-A tool used for remote content achieving operations.
+An application for embedded devices, which acts as ascii-to-morse-alphabet converter.
 
 ![](./docs/high-level-design.png)
 
