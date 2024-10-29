@@ -41,7 +41,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES Linux)
         ma 
         
         m
-        ${CMAKE_SOURCE_DIR}/lib/systemc/linux/x86/libsystemc-3.0.0.so)
+        ${CMAKE_SOURCE_DIR}/lib/systemc/linux/x86/libsystemc.a)
 elseif(${CMAKE_SYSTEM_NAME} MATCHES Darwin)
     target_link_libraries(
         ma
