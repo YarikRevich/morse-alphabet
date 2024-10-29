@@ -16,12 +16,14 @@ int sc_main(int, char*[]) {
 
   Pipeline* pipeline = new Pipeline(PIPELINE_BATCH_SIZE);
 
-  Scheduler scheduler("scheduler", pipeline);
-  Executor executor("executor", pipeline);
+	Watcher* watcher = new Watcher();
 
-	scheduler.start_button = -1;
-	scheduler.stop_button = -1;
-	scheduler.input = -1;
+  Scheduler scheduler("scheduler", pipeline, watcher);
+  Executor executor("executor", pipeline, watcher);
+
+	scheduler.start_button = 1;
+	scheduler.stop_button = 0;
+	scheduler.input = 0;
 
   sc_start(1000, SC_SEC);
 

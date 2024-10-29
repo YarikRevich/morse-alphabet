@@ -2,8 +2,10 @@
 
 #include "systemc"
 
+#include "../../tools/morse/morse.hpp"
 #include "../../logger/logger.hpp"
 #include "../pipeline/pipeline.hpp"
+#include "../watcher/watcher.hpp"
 #include "../state/state.hpp"
 
 using namespace sc_core;
@@ -15,11 +17,12 @@ using namespace sc_core;
 class Scheduler : public sc_module {
 public:
     /**
-     * Performs shceduler module initialization.
+     * Performs scheduler module initialization.
      * 
      * @param pipeline - given instance of pipeline batch.
+     * @param watcher - given instance of event watcher.
      */
-    SC_CTOR(Scheduler, Pipeline* pipeline);
+    SC_CTOR(Scheduler, Pipeline* pipeline, Watcher* watcher);
 
     /**
      * Performs state handlers processing.
@@ -42,17 +45,22 @@ public:
     void handle_convert_input_state();
 
     /**
-     * Represents input signal used to start recording process.
+     * Represents start button signal used to start recording process.
      */
     sc_signal<int> start_button;
 
     /**
-     * Represents input signal used to stop recording process.
+     * Represents convert button signal used to start conversion process.
+     */
+    sc_signal<int> convert_button;
+
+    /**
+     * Represents stop button signal used to stop both recording and conversion processes.
      */
     sc_signal<int> stop_button;
 
     /**
-     * Represents input signal used to transfer input data to be converted.
+     * Represents keyboard input signal used to record input data.
      */
     sc_signal<int> input;
 
@@ -61,4 +69,9 @@ private:
      * Represents instance of pipeline batch with scheduled operations.
      */
     Pipeline* pipeline;
+
+    /**
+     * Represents of instance of watcher, which helps to manage executor.
+     */
+    Watcher* watcher;
 };

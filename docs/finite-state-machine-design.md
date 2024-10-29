@@ -15,7 +15,7 @@ state "Convert input" as convertinput
 awaitinput --> awaitinput: "Stop record" button is pressed
 awaitinput --> recordinput: "Start record" button is pressed
 recordinput --> awaitinput: "Stop record" button is pressed
-recordinput --> convertinput: Input data to be converted is provided
-convertinput --> recordinput: Back to record input to receive new data to be converted
+recordinput --> convertinput: "Convert record" button is pressed
+convertinput --> recordinput: When all the provided data is converted
 convertinput --> awaitinput: "Stop record" button is pressed
 ```

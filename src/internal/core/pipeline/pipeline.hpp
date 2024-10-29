@@ -2,6 +2,8 @@
 
 #include "systemc"
 
+#include <vector>
+
 using namespace sc_core;
 
 /**
@@ -18,6 +20,18 @@ public:
      * Retrieves pipeline batch internal instance.
      */
     sc_fifo<int>* get_data();
+
+    /**
+     * Checks if pipeline batch empty.
+     * 
+     * @return result of the check.
+     */
+    bool is_empty();
+
+    /**
+     * Removes all the data from the pipeline batch.
+     */
+    void clear();
 
 private:
     /**

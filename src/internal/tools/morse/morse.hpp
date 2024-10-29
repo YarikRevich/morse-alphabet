@@ -16,16 +16,24 @@ public:
      * 
      * @return retrieved raw conversion data.
      */
-    std::map<int, std::vector<int>>* get_data();
+    static std::map<int, std::vector<int>>* get_data();
+
+    /**
+     * Checks if provided ASCII symbol code is allowed to be used.
+     * 
+     * @param symbol - provided ASCII symbol code.
+     * @return result of the check.
+     */
+    static bool is_allowed_symbol(int symbol);
 
 private:
     /**
      * Represents raw conversion data map initialization flag.
      */
-    std::once_flag data_flag;
+    static std::once_flag data_flag;
 
     /**
      * Represents pre-defined raw conversion data.
      */
-    std::map<int, std::vector<int>>* data;
+    static std::map<int, std::vector<int>>* data;
 };
