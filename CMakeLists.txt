@@ -11,7 +11,14 @@ message("Make build output path is /bin")
 # Describes all available state properties.
 add_compile_definitions(AWAIT_INPUT_STATE=0)
 add_compile_definitions(RECORD_INPUT_STATE=1)
-add_compile_definitions(CONVERT_INPUT_STATE=3)
+add_compile_definitions(CONVERT_INPUT_STATE=2)
+
+# Describes configuration for pipeline batch.
+add_compile_definitions(PIPELINE_BATCH_SIZE=1)
+
+# Describes configuration for logger functionality.
+add_compile_definitions(LOG_FILE="logs/output.log")
+add_compile_definitions(DEFAULT_LOG_TYPE="default")
 
 file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
 

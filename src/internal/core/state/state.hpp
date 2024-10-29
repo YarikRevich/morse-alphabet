@@ -8,16 +8,16 @@ public:
     /**
      * Retrieves current state value.
      */
-    int get_current();
+    static int get_current();
 
     /**
      * Sets current state value.
      */
-    void set_current(int value);
+    static void set_current(int value);
 
 private:
     /**
      * Represents current state value.
      */
-    int current = AWAIT_INPUT_STATE;
+    static int current;
 };

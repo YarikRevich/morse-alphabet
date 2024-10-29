@@ -15,13 +15,13 @@ public:
     Pipeline(size_t size);
 
     /**
-     * 
+     * Retrieves pipeline batch internal instance.
      */
     sc_fifo<int>* get_data();
 
 private:
     /**
-     * 
+     * Represents internal instance of pipeline batch.
      */
-    sc_fifo<int>* pipeline;
+    sc_fifo<int>* data;
 };

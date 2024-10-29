@@ -5,7 +5,7 @@
 using namespace sc_core;
 
 /**
- * 
+ * Represents entity
  */
 class CUSTOMIZED_TYPE {
   int x, y; // member variables
