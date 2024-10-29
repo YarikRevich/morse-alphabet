@@ -17,8 +17,8 @@ add_compile_definitions(CONVERT_INPUT_STATE=2)
 add_compile_definitions(PIPELINE_BATCH_SIZE=1)
 
 # Describes configuration for logger functionality.
-add_compile_definitions(LOG_FILE="logs/output.log")
-add_compile_definitions(DEFAULT_LOG_TYPE="default")
+add_compile_definitions(LOG_FILE= "logs/output.log")
+add_compile_definitions(DEFAULT_LOG_TYPE= "default")
 
 file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
 
@@ -36,11 +36,18 @@ add_executable(
     ${SRC_FILES}
 )
 
-target_link_libraries(
-    ma
+if(${CMAKE_SYSTEM_NAME} MATCHES Linux)
+    target_link_libraries(
+        ma 
+        
+        ${CMAKE_SOURCE_DIR}/lib/systemc/linux/x86/libsystemc-3.0.0.so)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES Darwin)
+    target_link_libraries(
+        ma
 
-    ${CMAKE_SOURCE_DIR}/lib/systemc/macos/arm/libsystemc.3.0.0.dylib
-)
+        ${CMAKE_SOURCE_DIR}/lib/systemc/macos/arm/libsystemc.3.0.0.dylib
+    )
+endif()
 
 if(NOT WIN32)
     install(TARGETS ma DESTINATION /usr/local/bin)
