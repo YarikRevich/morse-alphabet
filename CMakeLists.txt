@@ -17,10 +17,10 @@ add_compile_definitions(CONVERT_INPUT_STATE=2)
 add_compile_definitions(PIPELINE_BATCH_SIZE=1)
 
 # Describes configuration for logger functionality.
-add_compile_definitions(LOG_FILE= "logs/output.log")
-add_compile_definitions(DEFAULT_LOG_TYPE= "default")
+add_compile_definitions(LOG_FILE="logs/output.log")
+add_compile_definitions(DEFAULT_LOG_TYPE="default")
 
-file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
+file(GLOB INCLUDE_FILES ${CMAKE_SOURCE_DIR}/include/*)
 
 include_directories(${INCLUDE_FILES})
 
@@ -28,7 +28,7 @@ link_directories(
     "lib/"
 )
 
-file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
+file(GLOB_RECURSE SRC_FILES ${CMAKE_SOURCE_DIR}/src/**/*.cpp)
 
 add_executable(
     ma
