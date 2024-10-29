@@ -67,8 +67,6 @@ void Scheduler::handle_record_input_state()
         for (int delay : Morse::get_data()->at(symbol)) {
             pipeline->get_data()->write(delay);    
         }
-
-        State::set_current(CONVERT_INPUT_STATE);
     }
 }
 
@@ -84,9 +82,15 @@ void Scheduler::handle_convert_input_state()
         return;
     }
 
-    if (watcher->get_conversion_guard()->trywait()) {
-        Logger::invoke_info("Conversion request has been sent");
+    if (!pipeline->is_empty()) {
+        if (watcher->get_conversion_guard()->trywait()) {
+            Logger::invoke_info("Conversion request has been sent");
 
-        watcher->get_conversion_trigger()->notify();
+            watcher->get_conversion_trigger()->notify();
+        }
+    } else {
+        State::set_current(AWAIT_INPUT_STATE);
+
+        Logger::invoke_info("State has been changed to 'AWAIT_INPUT_STATE'");
     }
 }

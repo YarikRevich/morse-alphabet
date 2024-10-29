@@ -21,7 +21,6 @@ add_compile_definitions(LOG_FILE="logs/output.log")
 add_compile_definitions(DEFAULT_LOG_TYPE="default")
 
 # Describes configuration for signals management.
-add_compile_definitions(LOW_SIGNAL=0)
 add_compile_definitions(HIGH_SIGNAL=1)
 
 # Descrbies range of allowed input ASCII symbol codes.
