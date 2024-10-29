@@ -13,11 +13,11 @@ using namespace sc_core;
 class Executor : public sc_module {
 public:
     /**
-     * Performs module initialization.
+     * Performs executor module initialization.
      * 
      * @param pipeline - given instance of pipeline batch.
      */
-    SC_CTOR(Executor, Pipeline*);
+    SC_CTOR(Executor, Pipeline* pipeline);
 
     // TODO: load from pipeline, execute with awaits and unlock mutex after that. 
 
@@ -26,14 +26,19 @@ public:
      */
     void process();
 
-private:
     /**
-     * Represents instance of pipeline batch with scheduled operations.
+     * Watches process execution and can interrupt pipeline batch entity execution. 
      */
-    Pipeline* pipeline;
+    void watch();
 
     /**
      * Represents output signal for executor results.
      */
     sc_signal<int> output;
+
+private:
+    /**
+     * Represents instance of pipeline batch with scheduled operations.
+     */
+    Pipeline* pipeline;
 };

@@ -20,36 +20,6 @@ add_compile_definitions(PIPELINE_BATCH_SIZE=1)
 add_compile_definitions(LOG_FILE="logs/output.log")
 add_compile_definitions(DEFAULT_LOG_TYPE="default")
 
-file(GLOB INCLUDE_FILES ${CMAKE_SOURCE_DIR}/include/*)
+enable_testing()
 
-include_directories(${INCLUDE_FILES})
-
-link_directories(
-    "lib/"
-)
-
-file(GLOB_RECURSE SRC_FILES ${CMAKE_SOURCE_DIR}/src/**/*.cpp)
-
-add_executable(
-    ma
-
-    ${SRC_FILES}
-)
-
-if(${CMAKE_SYSTEM_NAME} MATCHES Linux)
-    target_link_libraries(
-        ma 
-        
-        m
-        ${CMAKE_SOURCE_DIR}/lib/systemc/linux/x86/libsystemc.a)
-elseif(${CMAKE_SYSTEM_NAME} MATCHES Darwin)
-    target_link_libraries(
-        ma
-
-        ${CMAKE_SOURCE_DIR}/lib/systemc/macos/arm/libsystemc.3.0.0.dylib
-    )
-endif()
-
-if(NOT WIN32)
-    install(TARGETS ma DESTINATION /usr/local/bin)
-endif()
+add_subdirectory(tests)
