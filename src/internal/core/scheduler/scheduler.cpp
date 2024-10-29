@@ -84,9 +84,9 @@ void Scheduler::handle_convert_input_state()
         return;
     }
 
-    if (watcher->get_conversion_guard()->trywait() != -1) {
+    if (watcher->get_conversion_guard()->trywait()) {
+        Logger::invoke_info("Conversion request has been sent");
+
         watcher->get_conversion_trigger()->notify();
     }
 }
-
-// TODO: add event, which will interrupt action.

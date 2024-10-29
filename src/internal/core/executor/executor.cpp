@@ -11,16 +11,18 @@ void Executor::process() {
     while (true) {
         wait(*watcher->get_conversion_trigger());
 
-        s.wait()
-
         if (!pipeline->is_empty()) {
+            Logger::invoke_info("Conversion has been started");
+
             while (!pipeline->is_empty()) {
                 int data = pipeline->get_data()->read();
 
                 Logger::invoke_info("LIGHTING LED");    
             }
 
-            s.post()
+            Logger::invoke_info("Conversion request has been finished");
+
+            watcher->get_conversion_guard()->post();
         } else {
             Logger::invoke_info("Pipeline batch does not have any elements");
         }
