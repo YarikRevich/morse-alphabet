@@ -82,7 +82,7 @@ void Scheduler::handle_record_input_state()
 
             for (int delay : Morse::get_data()->at(symbol))
             {
-                pipeline->get_data()->write(delay);
+                pipeline->write(delay);
             }
         } else {
             Logger::invoke_warning("Provided symbol cannot be converted");
