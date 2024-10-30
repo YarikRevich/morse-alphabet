@@ -20,6 +20,6 @@ In order to build the test benches into project local **bin** directory it's req
 make build
 ```
 
-## Test Benches
+## Use cases
 
-All the test benches are located in **./tests** directory. 
+All the test benches are located in **./tests** directory and are automatically executed during project build.
