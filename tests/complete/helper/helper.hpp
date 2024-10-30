@@ -1,5 +1,8 @@
 #include "systemc"
 
+#include "../../../src/internal/logger/logger.hpp"
+#include "../../../src/internal/core/state/state.hpp"
+
 using namespace sc_core;
 
 /**
