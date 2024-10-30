@@ -12,6 +12,7 @@ add_executable(
     complete 
     
     complete_tb.cpp
+    helper/helper.cpp
     ${SRC_FILES}
 )
 

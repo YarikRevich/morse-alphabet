@@ -26,21 +26,21 @@ public:
     // TODO: load from pipeline, execute with awaits and unlock mutex after that. 
 
     /**
-     * Performs pipeline batch scheduled operations processing.
-     */
-    void process();
-
-    // /**
-    //  * Watches process execution and can interrupt pipeline batch entity execution. 
-    //  */
-    // void watch();
-
-    /**
      * Represents output signal for executor results.
      */
     sc_signal<int> output;
 
+    /**
+     * Represents export interface for output signal for executor results.
+     */
+    sc_export<sc_signal<int>> output_export;
+
 private:
+    /**
+     * Performs pipeline batch scheduled operations processing.
+     */
+    void process();
+
     /**
      * Represents instance of pipeline batch with scheduled operations.
      */

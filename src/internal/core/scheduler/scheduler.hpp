@@ -21,9 +21,51 @@ public:
      * 
      * @param pipeline - given instance of pipeline batch.
      * @param watcher - given instance of event watcher.
+     * @param clk - given external system clock.
      */
-    SC_CTOR(Scheduler, Pipeline* pipeline, Watcher* watcher);
+    SC_CTOR(Scheduler, Pipeline* pipeline, Watcher* watcher, sc_clock* clk);
 
+    /**
+     * Represents start button signal used to start recording process.
+     */
+    sc_signal<int> start_button;
+
+    /**
+     * Represents export interface for start button signal used to start recording process.
+     */
+    sc_export<sc_signal<int>> start_button_export;
+
+    /**
+     * Represents stop button signal used to stop both recording and conversion processes.
+     */
+    sc_signal<int> stop_button;
+
+    /**
+     * Represents export interface for stop button signal used to stop both recording and conversion processes.
+     */
+    sc_export<sc_signal<int>> stop_button_export;
+
+    /**
+     * Represents convert button signal used to start conversion process.
+     */
+    sc_signal<int> convert_button;
+
+    /**
+     * Represents export interface for convert button signal used to start conversion process.
+     */
+    sc_export<sc_signal<int>> convert_button_export;
+
+    /**
+     * Represents keyboard input signal used to record input data.
+     */
+    sc_signal<int> input;
+
+    /**
+     * Represents export interface for keyboard input signal used to record input data.
+     */
+    sc_export<sc_signal<int>> input_export;
+
+private:
     /**
      * Performs state handlers processing.
      */
@@ -44,27 +86,6 @@ public:
      */
     void handle_convert_input_state();
 
-    /**
-     * Represents start button signal used to start recording process.
-     */
-    sc_signal<int> start_button;
-
-    /**
-     * Represents convert button signal used to start conversion process.
-     */
-    sc_signal<int> convert_button;
-
-    /**
-     * Represents stop button signal used to stop both recording and conversion processes.
-     */
-    sc_signal<int> stop_button;
-
-    /**
-     * Represents keyboard input signal used to record input data.
-     */
-    sc_signal<int> input;
-
-private:
     /**
      * Represents instance of pipeline batch with scheduled operations.
      */

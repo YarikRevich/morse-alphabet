@@ -26,6 +26,14 @@ public:
      */
     static bool is_allowed_symbol(int symbol);
 
+    /**
+     * Checks if provided ASCII symbol code is empty.
+     * 
+     * @param symbol - provided ASCII symbol code.
+     * @return result of the check.
+     */
+    static bool is_empty_symbol(int symbol);
+
 private:
     /**
      * Represents raw conversion data map initialization flag.

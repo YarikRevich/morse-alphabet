@@ -5,6 +5,10 @@ Executor::Executor(
     Pipeline* pipeline, 
     Watcher* watcher) : pipeline{pipeline}, watcher{watcher} {
     SC_THREAD(process);
+
+    sensitive << *watcher->get_conversion_trigger();
+
+    output_export(output);
 }
 
 void Executor::process() {
@@ -17,7 +21,13 @@ void Executor::process() {
             while (!pipeline->is_empty()) {
                 int data = pipeline->get_data()->read();
 
-                Logger::invoke_info("LIGHTING LED");    
+                output.write(HIGH_SIGNAL);
+
+                wait(data, SC_MS);
+
+                output.write(LOW_SIGNAL);
+
+                wait(MINOR_AWAIT, SC_MS);
             }
 
             Logger::invoke_info("Conversion request has been finished");
