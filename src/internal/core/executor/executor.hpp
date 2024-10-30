@@ -13,17 +13,19 @@ using namespace sc_core;
 /**
  * Represents executor module, which is reponsible for pipeline entities processing.
  */
-class Executor : public sc_module {
+class Executor : public sc_module
+{
 public:
     /**
      * Performs executor module initialization.
-     * 
+     *
      * @param pipeline - given instance of pipeline batch.
      * @param watcher - given instance of event watcher.
+     * @param clk - given external system clock.
      */
-    SC_CTOR(Executor, Pipeline* pipeline, Watcher* watcher);
+    SC_CTOR(Executor, Pipeline *pipeline, Watcher *watcher, sc_clock *clk);
 
-    // TODO: load from pipeline, execute with awaits and unlock mutex after that. 
+    // TODO: load from pipeline, execute with awaits and unlock mutex after that.
 
     /**
      * Represents output signal for executor results.
@@ -44,10 +46,10 @@ private:
     /**
      * Represents instance of pipeline batch with scheduled operations.
      */
-    Pipeline* pipeline;
+    Pipeline *pipeline;
 
     /**
      * Represents of instance of watcher, which helps to manage executor.
      */
-    Watcher* watcher;
+    Watcher *watcher;
 };

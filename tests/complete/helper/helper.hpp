@@ -49,4 +49,14 @@ private:
      * Performs first testcase, which checks correct application flow.
      */
     void perform_first_test_case();
+
+    /**
+     * Performs second testcase, which checks incorrect application flow, passing invalid input symbol.
+     */
+    void perform_second_test_case();
+
+    /**
+     * Performs third testcase, which checks incorrect application flow, passing button signals in a wrong sequence.
+     */
+    void perform_third_test_case();
 };

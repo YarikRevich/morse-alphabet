@@ -38,6 +38,7 @@ add_compile_definitions(LETTER_MAX_ASCII_RANGE=90)
 add_compile_definitions(EMPTY_ASCII_SYMBOL=0)
 
 # Describes properties used for test benches.
+add_compile_definitions(CYCLE_TIME=2000)
 add_compile_definitions(VALID_INPUT_SYMBOL=65)
 add_compile_definitions(INVALID_INPUT_SYMBOL=10)
 

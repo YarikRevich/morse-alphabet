@@ -19,10 +19,10 @@ int sc_main(int, char*[]) {
 
 	Watcher* watcher = new Watcher();
 
-	sc_clock clk("clock", 10, SC_NS, 0.1);
+	sc_clock clk("clock", 1, SC_SEC);
 
   Scheduler scheduler(SCHEDULER_MODULE_NAME, pipeline, watcher, &clk);
-  Executor executor(EXECUTOR_MODULE_NAME, pipeline, watcher);
+  Executor executor(EXECUTOR_MODULE_NAME, pipeline, watcher, &clk);
 	Helper helper(HELPER_MODULE_NAME, &clk);
 
 	helper.start_button(scheduler.start_button);

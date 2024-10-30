@@ -5,7 +5,7 @@
 
 ## General Information
 
-A design of application for embedded devices, which acts as ASCII-to-morse-alphabet converter.
+A design of application for embedded devices, which acts as **ASCII-to-morse-alphabet** converter.
 
 ![](./docs/high-level-design.png)
 
@@ -14,3 +14,12 @@ A design of application for embedded devices, which acts as ASCII-to-morse-alpha
 ## Setup
 
 All setup related operations are processed via **Makefile** placed in the root directory.
+
+In order to build the test benches into project local **bin** directory it's required to execute the following command.
+```shell
+make build
+```
+
+## Test Benches
+
+All the test benches are located in **./tests** directory. 

@@ -33,7 +33,7 @@ public:
      * @return result of the check.
      */
     static bool is_empty_symbol(int symbol);
-
+    
 private:
     /**
      * Represents raw conversion data map initialization flag.
