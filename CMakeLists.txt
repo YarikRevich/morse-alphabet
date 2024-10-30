@@ -6,35 +6,46 @@ project(editor VERSION 0.0.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_FLAGS "-std=c++17 -D_XOPEN_SOURCE_EXTENDED")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-message("Make build output path is /bin")
+message("Make build output path is ./bin")
 
-# Describes all available state properties.
+# Describes all the available module configurations.
+add_compile_definitions(SCHEDULER_MODULE_NAME="scheduler")
+add_compile_definitions(EXECUTOR_MODULE_NAME="executor")
+add_compile_definitions(HELPER_MODULE_NAME="helper")
+
+# Describes all the available state properties.
 add_compile_definitions(AWAIT_INPUT_STATE=0)
 add_compile_definitions(RECORD_INPUT_STATE=1)
-add_compile_definitions(CONVERT_INPUT_STATE=3)
+add_compile_definitions(CONVERT_INPUT_STATE=2)
 
-file(GLOB INCLUDE_FILES ${PROJECT_SOURCE_DIR}/include/*)
+# Describes configuration for pipeline batch.
+add_compile_definitions(PIPELINE_BATCH_SIZE=1000)
+add_compile_definitions(MINOR_AWAIT=100)
 
-include_directories(${INCLUDE_FILES})
+# Describes configuration for logger functionality.
+add_compile_definitions(LOG_FILE="logs/output.log")
+add_compile_definitions(DEFAULT_LOG_TYPE="default")
 
-link_directories(
-    "lib/"
-)
+# Describes configuration for signals management.
+add_compile_definitions(LOW_SIGNAL=0)
+add_compile_definitions(HIGH_SIGNAL=1)
 
-file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
+# Descrbies range of allowed input ASCII symbol codes.
+add_compile_definitions(NUMBER_MIN_ASCII_RANGE=48)
+add_compile_definitions(NUMBER_MAX_ASCII_RANGE=57)
+add_compile_definitions(LETTER_MIN_ASCII_RANGE=65)
+add_compile_definitions(LETTER_MAX_ASCII_RANGE=90)
+add_compile_definitions(EMPTY_ASCII_SYMBOL=0)
 
-add_executable(
-    ma
+# Describes properties used for test benches.
+add_compile_definitions(CYCLE_TIME=2000)
+add_compile_definitions(VALID_INPUT_SYMBOL=65)
+add_compile_definitions(INVALID_INPUT_SYMBOL=10)
 
-    ${SRC_FILES}
-)
+# Describes time unit values used for morse alphabet.
+add_compile_definitions(DOT_TIME_UNIT=1000)
+add_compile_definitions(DASH_TIME_UNIT=3000)
 
-target_link_libraries(
-    ma
+enable_testing()
 
-    ${CMAKE_SOURCE_DIR}/lib/systemc/macos/arm/libsystemc.3.0.0.dylib
-)
-
-if(NOT WIN32)
-    install(TARGETS ma DESTINATION /usr/local/bin)
-endif()
+add_subdirectory(tests)

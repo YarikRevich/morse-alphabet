@@ -3,6 +3,16 @@ name: Build
 on: [push]
 
 jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: "Build"
+      run: |
+        sudo make build
+
   build-macos:
     runs-on: macos-latest
 

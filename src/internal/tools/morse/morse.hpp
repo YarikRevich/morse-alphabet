@@ -4,7 +4,7 @@
 
 #include <map>
 #include <mutex>
-#include <string>
+#include <vector>
 
 /**
  * Represents morse alphabet related helpers.
@@ -13,17 +13,35 @@ class Morse {
 public:
     /**
      * Retrieves raw conversion data, having initialized it, if needed.
+     * 
+     * @return retrieved raw conversion data.
      */
-    std::map<int, std::string>* get_data();
+    static std::map<int, std::vector<int>>* get_data();
 
+    /**
+     * Checks if provided ASCII symbol code is allowed to be used.
+     * 
+     * @param symbol - provided ASCII symbol code.
+     * @return result of the check.
+     */
+    static bool is_allowed_symbol(int symbol);
+
+    /**
+     * Checks if provided ASCII symbol code is empty.
+     * 
+     * @param symbol - provided ASCII symbol code.
+     * @return result of the check.
+     */
+    static bool is_empty_symbol(int symbol);
+    
 private:
     /**
      * Represents raw conversion data map initialization flag.
      */
-    std::once_flag data_flag;
+    static std::once_flag data_flag;
 
     /**
      * Represents pre-defined raw conversion data.
      */
-    std::map<int, std::string>* data;
+    static std::map<int, std::vector<int>>* data;
 };

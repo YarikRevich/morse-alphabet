@@ -2,37 +2,54 @@
 
 #include "systemc"
 
+#include "../../logger/logger.hpp"
 #include "../pipeline/pipeline.hpp"
-#include "../converter/converter.hpp"
+#include "../watcher/watcher.hpp"
+
+#include <vector>
 
 using namespace sc_core;
 
 /**
  * Represents executor module, which is reponsible for pipeline entities processing.
  */
-class Executor : public sc_module {
+class Executor : public sc_module
+{
 public:
     /**
-     * Performs module initialization.
+     * Performs executor module initialization.
+     *
+     * @param pipeline - given instance of pipeline batch.
+     * @param watcher - given instance of event watcher.
+     * @param clk - given external system clock.
      */
-    SC_CTOR(Executor);
+    SC_CTOR(Executor, Pipeline *pipeline, Watcher *watcher, sc_clock *clk);
 
-    // TODO: load from pipeline, execute with awaits and unlock mutex after that. 
+    // TODO: load from pipeline, execute with awaits and unlock mutex after that.
 
+    /**
+     * Represents output signal for executor results.
+     */
+    sc_signal<int> output;
 
+    /**
+     * Represents export interface for output signal for executor results.
+     */
+    sc_export<sc_signal<int>> output_export;
+
+private:
     /**
      * Performs pipeline batch scheduled operations processing.
      */
     void process();
 
-private:
     /**
      * Represents instance of pipeline batch with scheduled operations.
      */
-    Pipeline* pipeline;
+    Pipeline *pipeline;
 
     /**
-     * Represents output handler, which is expected to be some led
+     * Represents of instance of watcher, which helps to manage executor.
      */
-    sc_signal<int> output;
+    Watcher *watcher;
 };
