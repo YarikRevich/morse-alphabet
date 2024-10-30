@@ -26,7 +26,7 @@ void Executor::process()
 
             while (!pipeline->is_empty())
             {
-                int delay = pipeline->get_data()->read();
+                int delay = pipeline->read();
 
                 Logger::invoke_info(std::string("Sending high output signal for ").append(std::to_string(delay)).append(" milliseconds"));
 
