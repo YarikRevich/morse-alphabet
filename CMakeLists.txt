@@ -31,8 +31,8 @@ add_compile_definitions(LOW_SIGNAL=0)
 add_compile_definitions(HIGH_SIGNAL=1)
 
 # Descrbies range of allowed input ASCII symbol codes.
-add_compile_definitions(NUMBER_MIN_ASCII_RANGE=48)
-add_compile_definitions(NUMBER_MAX_ASCII_RANGE=57)
+add_compile_definitions(NUMBER_MIN_ASCII_RANGE=97)
+add_compile_definitions(NUMBER_MAX_ASCII_RANGE=122)
 add_compile_definitions(LETTER_MIN_ASCII_RANGE=65)
 add_compile_definitions(LETTER_MAX_ASCII_RANGE=90)
 add_compile_definitions(EMPTY_ASCII_SYMBOL=0)
