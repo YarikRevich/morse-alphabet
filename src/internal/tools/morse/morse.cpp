@@ -6,32 +6,32 @@ std::map<int, std::vector<int>>* Morse::data = new std::map<int, std::vector<int
 
 std::map<int, std::vector<int>>* Morse::get_data() {
     std::call_once(Morse::data_flag, []{
-        Morse::data->emplace(65, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(66, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(67, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(68, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(69, std::vector<int>{DOT_TIME_UNIT});
-        Morse::data->emplace(70, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(71, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(72, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(73, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(74, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(75, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(76, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(77, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(78, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(79, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(80, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(81, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(82, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(83, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
-        Morse::data->emplace(84, std::vector<int>{DASH_TIME_UNIT});
-        Morse::data->emplace(85, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(86, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(87, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(88, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(89, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
-        Morse::data->emplace(90, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(97, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(98, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(99, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(100, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(101, std::vector<int>{DOT_TIME_UNIT});
+        Morse::data->emplace(102, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(103, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(104, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(105, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(106, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(107, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(108, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(109, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(110, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(111, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(112, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(113, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(114, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(115, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
+        Morse::data->emplace(116, std::vector<int>{DASH_TIME_UNIT});
+        Morse::data->emplace(117, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(118, std::vector<int>{DOT_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(119, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(120, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(121, std::vector<int>{DASH_TIME_UNIT, DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
+        Morse::data->emplace(122, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DOT_TIME_UNIT, DOT_TIME_UNIT});
 
         Morse::data->emplace(48, std::vector<int>{DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
         Morse::data->emplace(49, std::vector<int>{DOT_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT, DASH_TIME_UNIT});
